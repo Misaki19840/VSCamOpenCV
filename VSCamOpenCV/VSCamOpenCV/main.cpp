@@ -15,29 +15,15 @@ string cascadeName;
 
 int main(int argc, const char** argv)
 {
-	char cmd = 'g';
+	string cmd = argv[1];
 
-	switch (cmd)
-	{
-	case 'f':
-	{faceDetection_main(); break; }
-	case 'a':
-	{
-		armarkerDetection_main();
-	break; 
-	}
-	case 'g':
-	{
-		armarkerDetection_main_game01();
-		break;
-	}
-	case 'c':
-	{
-		armarkerCreation();
-	}
-	default:
-		break;
-	}
+	cout << "cmd: " << cmd << endl;
+
+	if(cmd.compare("fd") == 0) faceDetection_main();
+	else if(cmd.compare("ar_d") == 0) armarkerDetection_main();
+	else if(cmd.compare("ar_g01") == 0) armarkerDetection_main_game01();
+	else if(cmd.compare("ar_c") == 0) armarkerCreation();
+	else cout << "no cmmand named " << cmd << endl;
 
 	return 0;
 }
